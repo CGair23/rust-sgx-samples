@@ -1,1 +1,1 @@
-# rsut-sgx-samples
+# rust-sgx-samples
