@@ -1,0 +1,3 @@
+cargo:rustc-cfg=RUST_BACKTRACE="1"
+cargo:rustc-link-search=native=/opt/intel/sgxsdk/lib64
+cargo:rustc-link-lib=static=sgx_pthread

@@ -1,0 +1,34 @@
+enclave {
+    from "sgx_backtrace.edl" import *;
+    from "sgx_tstd.edl" import *;
+    from "sgx_stdio.edl" import *;
+    from "sgx_fs.edl" import *;
+    from "sgx_net.edl" import *;
+    from "sgx_time.edl" import *;
+    from "sgx_tstdc.edl" import *;
+    from "sgx_thread.edl" import *;
+
+
+    trusted {
+        public sgx_status_t run_server();
+        public sgx_status_t run_client();
+
+    };
+
+    include "sgx_quote.h"
+
+    untrusted {
+        sgx_status_t ocall_sgx_init_quote([out] sgx_att_key_id_t *p_att_key_id,
+                                          [out] sgx_target_info_t *p_target_info);
+
+        sgx_status_t ocall_sgx_get_quote_size([in] sgx_att_key_id_t *p_att_key_id,
+                                              [out] uint32_t *p_quote_size);
+
+        sgx_status_t ocall_sgx_get_quote([in] sgx_report_t *p_report,
+                                         [in] sgx_att_key_id_t *p_att_key_id,
+                                         [in, out] sgx_qe_report_info_t *p_qe_report_info,
+                                         [out, size=quote_size] uint8_t *p_quote,
+                                         uint32_t quote_size);
+    };
+};
+

@@ -1,0 +1,1 @@
+/home/chenge/workplace/rust-sgx-samples/channel_establishment/attestation/target/debug/libattestation.rlib: /home/chenge/workplace/rust-sgx-samples/channel_establishment/attestation/src/cert.rs /home/chenge/workplace/rust-sgx-samples/channel_establishment/attestation/src/lib.rs
